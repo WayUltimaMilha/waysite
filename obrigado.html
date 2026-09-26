@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <script>
+    /* Marca que o JS está vivo. Todo estado inicial escondido (revelações,
+       máscaras de linha, preloader) é escopado em `.js` no CSS — se este script
+       não rodar, a página nasce inteira em vez de ficar em branco. */
+    document.documentElement.classList.add('js');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mensagem enviada — Way Última Milha</title>
+  <meta name="description" content="Recebemos a sua mensagem. A equipe da Way Última Milha responde em horário comercial.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#050a16">
+
+  <link rel="icon" href="assets/img/Logotipo-Way-Final.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/way.css">
+</head>
+
+<body>
+  <div class="gl-fallback" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="atmo" aria-hidden="true"></div>
+
+  <header class="nav is-stuck">
+    <div class="shell nav__inner">
+      <a class="nav__logo" href="index.html" aria-label="Way Última Milha — página inicial">
+        <img src="assets/img/Logotipo-Way-Final.png" alt="Way Última Milha" width="500" height="250">
+      </a>
+    </div>
+  </header>
+
+  <main class="page standalone">
+    <div class="standalone__mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M20 6 9 17l-5-5" />
+      </svg>
+    </div>
+    <p class="eyebrow eyebrow--center">Recebido</p>
+    <h1>Mensagem enviada com sucesso.</h1>
+    <p class="lead">Nossa equipe responde em horário comercial. Se o assunto for urgente, chame no
+      WhatsApp — é o caminho mais rápido.</p>
+    <div class="cta__row">
+      <a class="btn btn--lg" href="https://api.whatsapp.com/send?phone=5511984885002" target="_blank"
+        rel="noopener">WhatsApp (11) 98488-5002</a>
+      <a class="btn btn--lg btn--ghost" href="index.html">Voltar ao início</a>
+    </div>
+  </main>
+</body>
+
+</html>

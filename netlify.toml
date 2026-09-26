@@ -1,0 +1,65 @@
+# =============================================================================
+# Way Última Milha — Netlify
+# O .htaccess é Apache e a Netlify o ignora por completo: nenhum redirect,
+# cabeçalho de segurança ou cache dele chega a rodar aqui. Este arquivo é o
+# equivalente para quem hospeda na Netlify.
+# =============================================================================
+
+[build]
+  publish = "."
+
+# --- URLs do site antigo → estrutura nova (301, preserva o SEO acumulado) ---
+[[redirects]]
+  from = "/Sobre.html"
+  to = "/index.html#sobre"
+  status = 301
+
+[[redirects]]
+  from = "/sobre.html"
+  to = "/index.html#sobre"
+  status = 301
+
+[[redirects]]
+  from = "/servicos.html"
+  to = "/index.html#servicos"
+  status = 301
+
+[[redirects]]
+  from = "/localização.html"
+  to = "/index.html#regioes"
+  status = 301
+
+[[redirects]]
+  from = "/localizacao.html"
+  to = "/index.html#regioes"
+  status = 301
+
+[[redirects]]
+  from = "/trabalhecomagente"
+  to = "/trabalhe-com-a-gente.html"
+  status = 301
+
+[[redirects]]
+  from = "/trabalheComAGente.html"
+  to = "/trabalhe-com-a-gente.html"
+  status = 301
+
+# --- Cabeçalhos de segurança ---
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# --- Cache: um ano nos assets versionados, HTML sempre revalida ---
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "no-cache, must-revalidate"

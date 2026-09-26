@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <script>
+    /* Marca que o JS está vivo. Todo estado inicial escondido (revelações,
+       máscaras de linha, preloader) é escopado em `.js` no CSS — se este script
+       não rodar, a página nasce inteira em vez de ficar em branco. */
+    document.documentElement.classList.add('js');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Trabalhe com a gente — agregados e freelancers | Way Última Milha</title>
+  <meta name="description"
+    content="Cadastre-se como agregado ou freelancer de coleta e entrega com a Way Última Milha em São Paulo. Veículo próprio, documentação em dia e operação licenciada.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#050a16">
+  <link rel="canonical" href="https://wayultimamilha.com.br/trabalhe-com-a-gente.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Way Última Milha">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://wayultimamilha.com.br/trabalhe-com-a-gente.html">
+  <meta property="og:title" content="Trabalhe com a gente — Way Última Milha">
+  <meta property="og:description"
+    content="Serviços freelancer de coleta e entrega em São Paulo. Tem veículo próprio? Cadastre-se e rode com uma operação licenciada.">
+  <meta property="og:image" content="https://wayultimamilha.com.br/assets/img/Agregando.jpg">
+
+  <link rel="icon" href="assets/img/Logotipo-Way-Final.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/Logotipo-Way-Final.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/way.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Trabalhe com a gente — Way Última Milha",
+    "url": "https://wayultimamilha.com.br/trabalhe-com-a-gente.html",
+    "description": "Cadastro de agregados e freelancers de coleta e entrega para a Way Última Milha em São Paulo.",
+    "about": {
+      "@type": "Organization",
+      "name": "Way Última Milha",
+      "telephone": "+55-11-98488-5002",
+      "email": "contato@wayultimamilha.com.br",
+      "url": "https://wayultimamilha.com.br/"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Ir para o conteúdo</a>
+
+  <div class="preloader">
+    <img class="preloader__logo" src="assets/img/Logotipo-Way-Final.png"
+      alt="Way Última Milha" width="500" height="250">
+    <div class="preloader__bar"><span></span></div>
+    <p class="preloader__pct">000%</p>
+  </div>
+
+  <script>
+    /* Se o módulo principal não assumir o preloader em 6s, esta rede o remove.
+       Cobre import maps sem suporte, 404 no bundle, bloqueio de proxy e
+       abertura direta por file:// (onde módulos ES são barrados por CORS). */
+    setTimeout(function () {
+      var pre = document.querySelector('.preloader');
+      if (!pre || pre.classList.contains('is-done')) return;
+      pre.classList.add('is-done');
+      document.body.classList.remove('is-locked');
+      document.documentElement.classList.remove('js');
+      var gl = document.getElementById('gl');
+      if (gl) gl.remove();
+    }, 6000);
+  </script>
+
+  <div class="wipe" aria-hidden="true"></div>
+
+  <!-- Poster estático primeiro, canvas depois: o canvas é opaco e, quando
+       ganha .is-ready, cobre o poster. Sem WebGL o JS remove o canvas; sem JS
+       ele nunca acende. Nos três casos sobra um fundo desenhado, nunca um
+       retângulo chapado. -->
+  <div class="gl-fallback" aria-hidden="true"></div>
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="atmo" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="shell nav__inner">
+      <a class="nav__logo" href="index.html" aria-label="Way Última Milha — página inicial">
+        <img src="assets/img/Logotipo-Way-Final.png" alt="Way Última Milha" width="500" height="250">
+      </a>
+
+      <nav class="nav__links" aria-label="Navegação principal">
+        <a class="nav__link" href="index.html#credenciais">Credenciais</a>
+        <a class="nav__link" href="index.html#sobre">Sobre</a>
+        <a class="nav__link" href="index.html#servicos">Serviços</a>
+        <a class="nav__link" href="index.html#regioes">Regiões</a>
+        <a class="nav__link" href="contato.html">Contato</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a class="btn btn--ghost" href="https://www.waysistemalogistico.com.br/" target="_blank"
+          rel="noopener">Rastrear carga</a>
+        <button class="nav__burger" type="button" aria-expanded="false" aria-controls="drawer"
+          aria-label="Abrir menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="drawer" id="drawer" aria-label="Navegação mobile">
+    <a class="drawer__link" href="index.html"><i>01</i> Início</a>
+    <a class="drawer__link" href="index.html#credenciais"><i>02</i> Credenciais</a>
+    <a class="drawer__link" href="index.html#servicos"><i>03</i> Serviços</a>
+    <a class="drawer__link" href="index.html#regioes"><i>04</i> Regiões</a>
+    <a class="drawer__link" href="contato.html"><i>05</i> Contato</a>
+    <a class="drawer__link" href="trabalhe-com-a-gente.html"><i>06</i> Trabalhe com a gente</a>
+    <div class="drawer__foot">
+      <a href="tel:+5511984885002">(11) 98488-5002</a>
+      <a href="mailto:contato@wayultimamilha.com.br">contato@wayultimamilha.com.br</a>
+    </div>
+  </nav>
+
+  <main class="page" id="main" data-gl-hero>
+
+    <section class="pagehead">
+      <div class="rules" aria-hidden="true"></div>
+      <div class="shell pagehead__inner">
+        <nav class="crumbs" aria-label="Trilha de navegação">
+          <a href="index.html">Início</a> <span aria-hidden="true">/</span> <span>Trabalhe com a gente</span>
+        </nav>
+        <h1 data-lines>
+          <span class="line-mask"><span>Estamos agregando</span></span>
+          <span class="line-mask"><b class="grad-orange">na cidade de São Paulo.</b></span>
+        </h1>
+        <p class="lead">
+          Serviços freelancer de coleta e entrega. Se você tem veículo próprio e quer rodar com uma
+          operação licenciada, cadastre-se abaixo — respondemos por e-mail ou WhatsApp.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="shell contact">
+
+        <div>
+          <dl class="contact__panel">
+            <div class="contact__item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <dt>Região de atuação</dt>
+              <dd>São Paulo e Grande SP
+                <small>Coletas e entregas na capital e região metropolitana</small>
+              </dd>
+            </div>
+
+            <div class="contact__item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="1" y="6" width="15" height="12" rx="2" />
+                <path d="M16 10h3.5a1 1 0 0 1 .9.55L22 14v4h-2M16 18H8" />
+                <circle cx="6" cy="18" r="2" />
+                <circle cx="18" cy="18" r="2" />
+              </svg>
+              <dt>Requisitos</dt>
+              <dd>Veículo próprio e documentação em dia
+                <small>Moto, fiorino, van ou VUC — conforme a operação</small>
+              </dd>
+            </div>
+
+            <div class="contact__item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
+              <dt>Operação licenciada</dt>
+              <dd>ANVISA · SIVISA-SP · CRF
+                <small>Roda com uma transportadora regularizada, não por conta própria</small>
+              </dd>
+            </div>
+
+            <div class="contact__item">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.966 1.164-.199.199-.397.223-.694.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.347-.446.52-.644.174-.198.232-.34.347-.567.116-.226.058-.42-.024-.567-.082-.149-.67-1.611-.916-2.206-.242-.579-.487-.501-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+              </svg>
+              <dt>Dúvidas rápidas</dt>
+              <dd><a href="https://api.whatsapp.com/send?phone=5511984885002" target="_blank"
+                  rel="noopener">Abrir conversa</a>
+                <small>Caminho mais rápido para tirar dúvidas do cadastro</small>
+              </dd>
+            </div>
+
+            <div class="contact__item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m2 7 10 6 10-6" />
+              </svg>
+              <dt>E-mail</dt>
+              <dd><a href="mailto:contato@wayultimamilha.com.br">contato@wayultimamilha.com.br</a>
+                <small>Resposta em horário comercial</small>
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="card">
+          <div>
+            <p class="eyebrow">Cadastro de agregado</p>
+            <h2 style="font-size:var(--fs-h3);margin-top:.6rem">Quero transportar com a Way</h2>
+          </div>
+
+          <form class="form" data-form action="https://api.staticforms.xyz/submit" method="post"
+            novalidate>
+            <input type="hidden" name="accessKey" value="84bb621b-5db3-45c3-95ca-0c4aa116848b">
+            <input type="hidden" name="subject" value="Cadastro de agregado pelo site — wayultimamilha.com.br">
+            <input type="hidden" name="redirectTo" value="https://wayultimamilha.com.br/obrigado.html">
+            <div class="honeypot" aria-hidden="true">
+              <label for="honeypot">Não preencha</label>
+              <input type="text" name="honeypot" id="honeypot" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="form__row">
+              <div class="field">
+                <label for="nome">Nome <span aria-hidden="true">*</span></label>
+                <input type="text" id="nome" name="name" placeholder="Seu nome" required
+                  autocomplete="given-name">
+                <p class="field__err" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="tel">Telefone <span aria-hidden="true">*</span></label>
+                <input type="tel" id="tel" name="$Telefone" placeholder="(11) 90000-0000" required
+                  autocomplete="tel" inputmode="tel">
+                <p class="field__err" aria-live="polite"></p>
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="field">
+                <label for="email">E-mail <span aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="replyTo" placeholder="voce@email.com.br" required
+                  autocomplete="email">
+                <p class="field__err" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="veiculo">Veículo</label>
+                <select id="veiculo" name="$Veiculo">
+                  <option value="Moto">Moto</option>
+                  <option value="Fiorino / Utilitário">Fiorino / Utilitário</option>
+                  <option value="Van">Van</option>
+                  <option value="VUC">VUC</option>
+                  <option value="Caminhão 3/4">Caminhão 3/4</option>
+                  <option value="Ainda não tenho">Ainda não tenho</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="regiao">Região de atuação</label>
+              <select id="regiao" name="$Regiao">
+                <option value="São Paulo / Grande SP">São Paulo / Grande SP</option>
+                <option value="Campinas">Campinas e região</option>
+                <option value="Sorocaba">Sorocaba e região</option>
+                <option value="Baixada Santista">Baixada Santista</option>
+                <option value="Vale da Ribeira">Vale da Ribeira</option>
+                <option value="Outra">Outra</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message">Mensagem</label>
+              <textarea id="message" name="message" minlength="12" required
+                placeholder="Disponibilidade, experiência com coleta e entrega, e região onde já roda."></textarea>
+              <p class="field__err" aria-live="polite"></p>
+            </div>
+
+            <div class="form__status">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4M12 16h.01" />
+              </svg>
+              <p data-status-text></p>
+            </div>
+
+            <button class="btn btn--lg btn--block" type="submit">
+              Quero me cadastrar <span class="btn__arrow">→</span>
+            </button>
+
+            <p class="form__note">
+              Os dados enviados são usados apenas para avaliar o seu cadastro. Ao enviar, você
+              concorda com esse uso. Envio processado por
+              <a href="https://www.staticforms.xyz/" target="_blank" rel="noopener nofollow">StaticForms</a>.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/img/Logotipo-Way-Final.png" alt="Way Última Milha" width="500" height="250"
+            loading="lazy">
+          <p>Em busca da excelência no transporte de cargas em São Paulo — com a licença e o
+            processo que o setor de saúde exige.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="index.html#credenciais">Credenciais</a></li>
+            <li><a href="index.html#servicos">Serviços</a></li>
+            <li><a href="index.html#regioes">Regiões atendidas</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="trabalhe-com-a-gente.html">Trabalhe com a gente</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Fale conosco</h4>
+          <ul>
+            <li><a href="tel:+5511984885002">(11) 98488-5002</a></li>
+            <li><a href="mailto:contato@wayultimamilha.com.br">contato@wayultimamilha.com.br</a></li>
+            <li><a href="https://api.whatsapp.com/send?phone=5511984885002" target="_blank"
+                rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Conformidade</h4>
+          <p>AE Portaria 344 · AFE Medicamentos, Correlatos e Cosméticos · SIVISA · CRF</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© <span id="year">2026</span> Way Última Milha — Todos os direitos reservados</p>
+        <p>Transportadora licenciada ANVISA · SIVISA-SP · CRF</p>
+        <p>Desenvolvido por Diego Cardoso</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa" href="https://api.whatsapp.com/send?phone=5511984885002" target="_blank" rel="noopener"
+    aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.966 1.164-.199.199-.397.223-.694.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.347-.446.52-.644.174-.198.232-.34.347-.567.116-.226.058-.42-.024-.567-.082-.149-.67-1.611-.916-2.206-.242-.579-.487-.501-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+    </svg>
+    <span class="wa__txt">Fale no WhatsApp</span>
+  </a>
+
+  <script src="assets/js/vendor/lenis.min.js" defer></script>
+  <script type="importmap">
+  { "imports": { "three": "./assets/js/vendor/three.module.min.js" } }
+  </script>
+  <script type="module" src="assets/js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>

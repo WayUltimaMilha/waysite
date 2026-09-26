@@ -1,0 +1,81 @@
+# =============================================================================
+# Way Última Milha — Apache
+# Redirects das URLs antigas, compressão, cache e cabeçalhos de segurança.
+# =============================================================================
+
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # --- URLs do site antigo → estrutura nova (301, preserva o SEO acumulado) ---
+  RewriteRule ^Sobre\.html$              /index.html#sobre        [R=301,L,NE]
+  RewriteRule ^sobre\.html$              /index.html#sobre        [R=301,L,NE]
+  RewriteRule ^servicos\.html$           /index.html#servicos     [R=301,L,NE]
+  RewriteRule ^localiza%C3%A7%C3%A3o\.html$ /index.html#regioes   [R=301,L,NE]
+  RewriteRule ^localiza(ç|%C3%A7)ão\.html$  /index.html#regioes   [R=301,L,NE]
+  RewriteRule ^localizacao\.html$        /index.html#regioes      [R=301,L,NE]
+  RewriteRule ^trabalhecomagente/?$      /trabalhe-com-a-gente.html [R=301,L]
+  RewriteRule ^trabalheComAGente\.html$  /trabalhe-com-a-gente.html [R=301,L]
+
+  # --- Canonical: sem www e sempre https ---
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+ErrorDocument 404 /404.html
+
+# ------------------------------------------------------------------- MIME/charset
+AddDefaultCharset UTF-8
+<IfModule mod_mime.c>
+  AddType application/javascript .js .mjs
+  AddType image/webp             .webp
+  AddType application/json       .json
+  AddType application/manifest+json .webmanifest
+</IfModule>
+
+# ------------------------------------------------------------------- compressão
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml application/xml
+</IfModule>
+
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# ----------------------------------------------------------------------- cache
+# O HTML precisa revalidar: é onde vive a versão dos assets.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                 "access plus 0 seconds"
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
+  ExpiresByType image/jpeg                "access plus 1 year"
+  ExpiresByType image/png                 "access plus 1 year"
+  ExpiresByType image/webp                "access plus 1 year"
+  ExpiresByType image/svg+xml             "access plus 1 year"
+  ExpiresByType font/woff2                "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|mjs|jpe?g|png|webp|svg|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  # --------------------------------------------------------------- segurança
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+</IfModule>
