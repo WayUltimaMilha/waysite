@@ -2411,6 +2411,13 @@ html:not(.js) .preloader {
   transform: none;
 }
 
+/* Depois de revelado, o tilt do hover usa transição curta e sem o atraso
+   escalonado (--d). Senão cada card responde com um atraso diferente (0/90/180ms)
+   e o transform de 0,85s do reveal deixa o hover lento. */
+.js .card--tilt.is-in {
+  transition: opacity 0.85s var(--ease-out) var(--d, 0ms), transform 0.25s var(--ease-out);
+}
+
 /* Cursor customizado (desktop com mouse fino) */
 .cursor {
   position: fixed;
